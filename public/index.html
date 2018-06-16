@@ -9,6 +9,16 @@
 </head>
 <body>
 	<h1>My Reading List</h1>
+
+	<ul id="bookList" class="list-group">
+	</ul>
+
+	<script type="text/javascript">
+	$.getJSON('/library/books/list', function(data){
+		$("#bookList").append('<li class="list-group-item">' + data.title + '</li>');
+	});
+	</script>
+
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
