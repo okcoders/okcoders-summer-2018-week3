@@ -26,8 +26,16 @@ router.get('/books/list', function(req, res){
 });
 
 router.post('/books/add', function(req, res){
-	console.log(req.body);
-	res.status(404).send('Book Added');
+
+	var book = new Books(req.body);
+	book.save(function(err, results){
+		if(err){ 
+			console.log(req.body);
+			res.status(404);
+		} else {
+			res.status(201).send('Book Added');
+		}
+	});
 });
 
 module.exports = router;
