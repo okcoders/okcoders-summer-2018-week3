@@ -25,4 +25,9 @@ router.get('/books/list', function(req, res){
 	});
 });
 
+router.post('/books/add', function(req, res){
+	console.log(req.body);
+	res.status(404).send('Book Added');
+});
+
 module.exports = router;
